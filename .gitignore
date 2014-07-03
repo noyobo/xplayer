@@ -1,0 +1,9 @@
+.DS_Store
+node_modules
+1.0/doc
+npm-debug.log
+*.swp
+*.mp3
+.sw*
+.idea/*
+1.1/demo/files
