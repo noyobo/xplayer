@@ -69,8 +69,8 @@ KISSY.add(function(S, Base, Swf, Status) {
                     self.fire('progress', data)
                 },
                 error: function() {
-                    S.log('error')
-                    self.fire('error')
+                    S.log('error');
+                    self.fire('error');
                 }
             }
 

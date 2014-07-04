@@ -286,7 +286,8 @@ KISSY.add('gallery/xplayer/1.0/plugin/audioSwf',function(S, Base, Swf, Status) {
                     self.fire('progress', data)
                 },
                 error: function() {
-                    S.log('error')
+                    S.log('error');
+                    self.fire('error');
                 }
             }
 
@@ -570,6 +571,26 @@ KISSY.add('gallery/xplayer/1.0/index',function(S, Node, PlayerAudio, PlayerSwf) 
             var a = document.createElement('audio');
             return !!(a.canPlayType && a.canPlayType('audio/mpeg').replace(/no/, ''));
         }
+        /**
+         * 正在播放中, 触发该事件
+         * @event Xplayer.timeupdate
+         * @param {Object} [data={currentTime:0, duration:1}] 返回内容
+         * @return {Object} 返回状态
+         */
+        /**
+         * 正在加载中, 触发该事件
+         * @event Xplayer.progress
+         * @param {Object} [data={progress:0, duration:1}] 返回内容
+         * @return {Object} 返回状态
+         */
+        /**
+         * 播放结束, 触发该事件
+         * @event Xplayer.ended
+         */
+        /**
+         * 播放错误, 触发该事件
+         * @event Xplayer.error
+         */
     }
     return Xplayer;
 }, {
