@@ -19,7 +19,7 @@ KISSY.add(function(S, Base, Swf, Status) {
     };
     var win = window;
     var swfurl = "../flash/xplayer.swf?v=" + S.now();
-    if (window.location.href.indexOf('gitlabswf') === -1) {
+    if (window.location.href.indexOf('github') === -1) {
         swfurl = 'http://a.tbcdn.cn/s/kissy/gallery/xplayer/1.0/xplayer.swf';
     };
     var FlashPlayer = Base.extend({
@@ -27,6 +27,14 @@ KISSY.add(function(S, Base, Swf, Status) {
             var self = this;
             var swfid = randomString(10);
             var XPLAYERINTERFACE = 'Xplayer_' + swfid;
+            var wrap = document.createElement('DIV');
+            wrap.id = 'XP_' + XPLAYERINTERFACE;
+            wrap.style.position = 'absolute';
+            wrap.style.width = '1px';
+            wrap.style.height = '1px';
+            wrap.style.left = '-1000px';
+            wrap.style.top = '-1000px';
+            document.body.appendChild(wrap);
             var swfConfig = {
                 src: swfurl,
                 attrs: {
@@ -41,7 +49,7 @@ KISSY.add(function(S, Base, Swf, Status) {
                         'xplayerinterface': XPLAYERINTERFACE
                     }
                 },
-                render: "body",
+                render: wrap,
                 version: "9.0"
             };
 
@@ -71,7 +79,6 @@ KISSY.add(function(S, Base, Swf, Status) {
         load: function(url) {
             var self = this;
             self.set('src', url);
-            console.log(url)
             self.player.callSWF('jsSrc', [url]);
         },
         play: function() {

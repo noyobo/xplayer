@@ -235,14 +235,25 @@ KISSY.add('gallery/xplayer/1.0/plugin/audioSwf',function(S, Base, Swf, Status) {
         return str;
     };
     var win = window;
-
+    var swfurl = "../flash/xplayer.swf?v=" + S.now();
+    if (window.location.href.indexOf('github') === -1) {
+        swfurl = 'http://a.tbcdn.cn/s/kissy/gallery/xplayer/1.0/xplayer.swf';
+    };
     var FlashPlayer = Base.extend({
         initializer: function() {
             var self = this;
             var swfid = randomString(10);
             var XPLAYERINTERFACE = 'Xplayer_' + swfid;
+            var wrap = document.createElement('DIV');
+            wrap.id = 'XP_' + XPLAYERINTERFACE;
+            wrap.style.position = 'absolute';
+            wrap.style.width = '1px';
+            wrap.style.height = '1px';
+            wrap.style.left = '-1000px';
+            wrap.style.top = '-1000px';
+            document.body.appendChild(wrap);
             var swfConfig = {
-                src: "../flash/xplayer.swf?v=" + S.now(),
+                src: swfurl,
                 attrs: {
                     width: 1,
                     height: 1,
@@ -255,7 +266,7 @@ KISSY.add('gallery/xplayer/1.0/plugin/audioSwf',function(S, Base, Swf, Status) {
                         'xplayerinterface': XPLAYERINTERFACE
                     }
                 },
-                render: "body",
+                render: wrap,
                 version: "9.0"
             };
 
@@ -285,7 +296,6 @@ KISSY.add('gallery/xplayer/1.0/plugin/audioSwf',function(S, Base, Swf, Status) {
         load: function(url) {
             var self = this;
             self.set('src', url);
-            console.log(url)
             self.player.callSWF('jsSrc', [url]);
         },
         play: function() {
@@ -321,7 +331,7 @@ KISSY.add('gallery/xplayer/1.0/plugin/audioSwf',function(S, Base, Swf, Status) {
                 self.play();
             };
         },
-        setVolume: function(val){
+        setVolume: function(val) {
             var self = this;
             self.status.volume = val;
             self.player.callSWF('setVolume', [Number(v)]);

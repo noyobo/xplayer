@@ -273,7 +273,7 @@
 		private function debug(... args):void
 		{
 			trace(args.join(" "));
-			ExternalInterface.call("console.log", args.join(" "));
+			//ExternalInterface.call("console.log", args.join(" "));
 		}
 	}
 }

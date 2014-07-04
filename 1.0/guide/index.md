@@ -1,6 +1,6 @@
 ## 综述
 
-Xplayer是。
+Xplayer是一款音乐播放器, 支持 audio flash 播放.
 
 * 版本：1.0
 * 作者：宝码
@@ -13,3 +13,5 @@ Xplayer是。
     })
 
 ## API说明
+
+    [https://rawgit.com/noyobo/xplayer/master/1.0/doc/index.html](https://rawgit.com/noyobo/xplayer/master/1.0/doc/index.html)
