@@ -131,6 +131,16 @@
             </ul>
             <ul class="events itemMembers">
             
+            <span class="subtitle">Events</span>
+            
+                <li data-name="Xplayer.event:ended"><a href="Xplayer.html#event:ended">ended</a></li>
+            
+                <li data-name="Xplayer.event:error"><a href="Xplayer.html#event:error">error</a></li>
+            
+                <li data-name="Xplayer.event:progress"><a href="Xplayer.html#event:progress">progress</a></li>
+            
+                <li data-name="Xplayer.event:timeupdate"><a href="Xplayer.html#event:timeupdate">timeupdate</a></li>
+            
             </ul>
         </li>
     
@@ -1592,6 +1602,424 @@ player.on(&quot;ended&quot;, function(e){
     
     
     
+        <h3 class="subsection-title">Events</h3>
+        
+        <dl>
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="event:ended">
+            
+            Xplayer.event:ended
+        </h4>
+    
+        
+        <div class="tag-source">
+            <a href="index.js.html">index.js</a>, <a href="index.js.html#line198">line 198</a>
+        </div>
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>播放结束, 触发该事件</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="event:error">
+            
+            Xplayer.event:error
+        </h4>
+    
+        
+        <div class="tag-source">
+            <a href="index.js.html">index.js</a>, <a href="index.js.html#line199">line 199</a>
+        </div>
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>播放错误, 触发该事件</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="event:progress">
+            
+            Xplayer.event:progress
+        </h4>
+    
+        
+        <div class="tag-source">
+            <a href="index.js.html">index.js</a>, <a href="index.js.html#line197">line 197</a>
+        </div>
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>正在加载中, 触发该事件</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Default</th>
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>data</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+                <td class="default">
+                
+                    {progress:0, duration:1}
+                
+                </td>
+            
+            
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                <p>返回内容</p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+
+
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="event:timeupdate">
+            
+            Xplayer.event:timeupdate
+        </h4>
+    
+        
+        <div class="tag-source">
+            <a href="index.js.html">index.js</a>, <a href="index.js.html#line196">line 196</a>
+        </div>
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>正在播放中, 触发该事件</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Default</th>
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>data</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+                <td class="default">
+                
+                    {currentTime:0, duration:1}
+                
+                </td>
+            
+            
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                <p>返回内容</p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+
+
+    
+    
+    
+</dd>
+
+        </dl>
+    
 </article>
 
 </section>  
@@ -1609,7 +2037,7 @@ player.on(&quot;ended&quot;, function(e){
         
 
         <footer>
-            Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.2</a> on Thu Jul 03 2014 18:50:28 GMT+0800 (CST)
+            Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.2</a> on Fri Jul 04 2014 10:35:56 GMT+0800 (CST)
         </footer>
     </div>
 </div>

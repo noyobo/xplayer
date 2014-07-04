@@ -70,6 +70,7 @@ KISSY.add(function(S, Base, Swf, Status) {
                 },
                 error: function() {
                     S.log('error')
+                    self.fire('error')
                 }
             }
 
