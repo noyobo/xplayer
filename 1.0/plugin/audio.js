@@ -84,11 +84,12 @@ KISSY.add(function(S, Base, Status) {
             stop: function() {
                 var self = this;
                 self.status.isPlaying = false;
-                self.status.isPaused = true;
-                self.pause();
+                self.status.isPaused = false;
+                self.status.pausePosition = 0;
                 try {
                     self.audio.currentTime = 0;
                 } catch (e) {};
+                self.audio.pause();
             },
             /**
              * 设置播放头位置
