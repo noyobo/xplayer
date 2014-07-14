@@ -176,7 +176,7 @@ module.exports = function(grunt) {
             dist: {
                 src: [
                     '<%= pkg.version %>/index.js',
-                    //'<%= pkg.version %>/plugin/*.js',
+                    // '<%= pkg.version %>/mini.js',
                     '<%= pkg.version %>/plugin/status.js',
                     'README.md'
                 ],
