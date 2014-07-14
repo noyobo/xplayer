@@ -34,6 +34,9 @@ module.exports = function(grunt) {
                 files: [{
                     src: "<%= pkg.version %>/index.js",
                     dest: "<%= pkg.version %>/build/index.js"
+                }, {
+                    src: "<%= pkg.version %>/mini.js",
+                    dest: "<%= pkg.version %>/build/mini.js"
                 }]
             }
         },
@@ -172,10 +175,11 @@ module.exports = function(grunt) {
         jsdoc: {
             dist: {
                 src: [
-                '<%= pkg.version %>/index.js',
-                //'<%= pkg.version %>/plugin/*.js',
-                '<%= pkg.version %>/plugin/status.js',
-                'README.md'],
+                    '<%= pkg.version %>/index.js',
+                    //'<%= pkg.version %>/plugin/*.js',
+                    '<%= pkg.version %>/plugin/status.js',
+                    'README.md'
+                ],
                 options: {
                     'private': false,
                     destination: './<%= pkg.version %>/doc',
@@ -203,8 +207,12 @@ module.exports = function(grunt) {
         //task.run(['jsdoc']);
     });
 
+    grunt.registerTask('css', '构建CSS任务', function() {
+        task.run(['clean:build', 'less', 'sass', 'cssmin']);
+    });
+
     grunt.registerTask('build', '默认构建任务', function() {
-        task.run(['clean:build', 'kmc', 'uglify', 'copy', 'less', 'sass', 'cssmin']);
+        task.run(['clean:build', 'kmc', 'uglify', 'copy']);
     });
 
     // 启动Debug调试时的本地服务：grunt debug
