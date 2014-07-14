@@ -532,7 +532,8 @@ KISSY.add('gallery/xplayer/1.0/index',function(S, Node, PlayerAudio, PlayerSwf) 
         },
         /**
          * 设置播放头位置
-         * @method Xplayer.setPostion
+         * @method Xplayer.setPosition
+
          * @param {Number} [val=required] 播放头位置,单位S
          * @return {Xplayer} Xplayer
          */
