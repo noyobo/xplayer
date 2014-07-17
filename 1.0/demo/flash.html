@@ -88,7 +88,8 @@ XiamiPlay.load({
     S.use('gallery/xplayer/1.0/index', function(S, Xplayer) {
         var $ = S.Node.all;
         var XiamiPlay = window.XiamiPlay = new Xplayer({
-            "autoplay": true
+            "autoplay": true,
+            'forceFlash' : true
         });
 
         $("#play").on("click", function() {

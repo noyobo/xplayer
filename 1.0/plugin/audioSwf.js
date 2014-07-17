@@ -19,7 +19,7 @@ KISSY.add(function(S, Base, Swf, Status) {
     };
     var win = window;
     var swfurl = "../flash/xplayer.swf?v=" + S.now();
-    if (window.location.href.indexOf('github') === -1) {
+    if (window.location.href.indexOf('github.xiami.com') === -1) {
         swfurl = 'http://a.tbcdn.cn/s/kissy/gallery/xplayer/1.0/xplayer.swf';
     };
     var FlashPlayer = Base.extend({
@@ -44,7 +44,7 @@ KISSY.add(function(S, Base, Swf, Status) {
                 },
                 params: {
                     allowScriptAccess: "always",
-                    wmode: "transparent",
+                    wmode: "window",
                     flashVars: {
                         'xplayerinterface': XPLAYERINTERFACE
                     }

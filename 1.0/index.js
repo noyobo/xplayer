@@ -32,7 +32,9 @@ KISSY.add(function(S, Node, PlayerAudio, PlayerSwf) {
          * @type {Object}
          */
         self.config = S.mix({
-            'autoplay': false
+            'autoplay': false,
+            'forceFlash': false,
+            'forceAudio': false
         }, config, true);
         // 立即初始化
         self._init();
@@ -53,6 +55,15 @@ KISSY.add(function(S, Node, PlayerAudio, PlayerSwf) {
              * @readOnly
              * @type {Audio|Swf}
              */
+            self.track = null;
+            if (self.config.forceFlash) {
+                self.player = new PlayerSwf();
+                return self;
+            };
+            if (self.config.forceAudio) {
+                self.player = new PlayerAudio();
+                return self;
+            };
             var isSupport = self.supportAudio();
             self.player = isSupport ? new PlayerAudio() : new PlayerSwf();
             //self.player = new PlayerSwf();
@@ -66,7 +77,7 @@ KISSY.add(function(S, Node, PlayerAudio, PlayerSwf) {
              * Xplayer.getTrack() // {trackVo}
              * @see getTrack()
              */
-            self.track = null;
+
             return self;
         },
         /**
@@ -188,32 +199,32 @@ KISSY.add(function(S, Node, PlayerAudio, PlayerSwf) {
          * @return {Boolean} 是否支持Audio
          */
         supportAudio: function() {
-            var self = this;
-            //audio/mpeg
-            //application/octet-stream
-            var a = document.createElement('audio');
-            return !!(a.canPlayType && a.canPlayType('audio/mpeg').replace(/no/, ''));
-        }
-        /**
-         * 正在播放中, 触发该事件
-         * @event Xplayer.timeupdate
-         * @param {Object} [data={currentTime:0, duration:1}] 返回内容
-         * @return {Object} 返回状态
-         */
-        /**
-         * 正在加载中, 触发该事件
-         * @event Xplayer.progress
-         * @param {Object} [data={progress:0, duration:1}] 返回内容
-         * @return {Object} 返回状态
-         */
-        /**
-         * 播放结束, 触发该事件
-         * @event Xplayer.ended
-         */
-        /**
-         * 播放错误, 触发该事件
-         * @event Xplayer.error
-         */
+                var self = this;
+                //audio/mpeg
+                //application/octet-stream
+                var a = document.createElement('audio');
+                return !!(a.canPlayType && a.canPlayType('audio/mpeg').replace(/no/, ''));
+            }
+            /**
+             * 正在播放中, 触发该事件
+             * @event Xplayer.timeupdate
+             * @param {Object} [data={currentTime:0, duration:1}] 返回内容
+             * @return {Object} 返回状态
+             */
+            /**
+             * 正在加载中, 触发该事件
+             * @event Xplayer.progress
+             * @param {Object} [data={progress:0, duration:1}] 返回内容
+             * @return {Object} 返回状态
+             */
+            /**
+             * 播放结束, 触发该事件
+             * @event Xplayer.ended
+             */
+            /**
+             * 播放错误, 触发该事件
+             * @event Xplayer.error
+             */
     }
     return Xplayer;
 }, {
