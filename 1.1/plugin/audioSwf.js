@@ -20,7 +20,7 @@ KISSY.add(function(S, Base, Swf, Status) {
     var win = window;
     var swfurl = "../flash/xplayer.swf?v=" + S.now();
     if (window.location.href.indexOf('github.xiami.com') === -1) {
-        swfurl = 'http://a.tbcdn.cn/s/kissy/gallery/xplayer/1.1/xplayer.swf';
+        swfurl = 'http://g.tbcdn.cn/de/music-swf/xplayer.swf';
     };
     var FlashPlayer = Base.extend({
         initializer: function() {

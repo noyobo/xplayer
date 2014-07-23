@@ -38,7 +38,7 @@ KISSY.add('gallery/xplayer/1.1/plugin/status',function(S) {
          * 当前音量
          * @type {Number}
          */
-        volume: 1,
+        volume: 0.5,
         // *
         //  * 静音状态
         //  * @type {Boolean}
@@ -221,10 +221,9 @@ KISSY.add('gallery/xplayer/1.1/plugin/audio',function(S, Base, Status) {
  * @version 1.0
  * @copyright www.noyobo.com
  */
-KISSY.add('gallery/xplayer/1.1/mini',function(S, Node, PlayerAudio) {
+KISSY.add('gallery/xplayer/1.1/mini',function(S, PlayerAudio) {
     'use strict';
     var EMPTY = '';
-    var $ = Node.all;
     /**
      * @name Xplayer
      * @class MP3播放组件
@@ -421,6 +420,6 @@ KISSY.add('gallery/xplayer/1.1/mini',function(S, Node, PlayerAudio) {
     }
     return Xplayer;
 }, {
-    requires: ['node', './plugin/audio']
+    requires: ['./plugin/audio']
 });
 

@@ -39,7 +39,7 @@ KISSY.add('gallery/xplayer/1.1/plugin/status',function(S) {
          * 当前音量
          * @type {Number}
          */
-        volume: 1,
+        volume: 0.5,
         // *
         //  * 静音状态
         //  * @type {Boolean}
@@ -238,7 +238,7 @@ KISSY.add('gallery/xplayer/1.1/plugin/audioSwf',function(S, Base, Swf, Status) {
     var win = window;
     var swfurl = "../flash/xplayer.swf?v=" + S.now();
     if (window.location.href.indexOf('github.xiami.com') === -1) {
-        swfurl = 'http://a.tbcdn.cn/s/kissy/gallery/xplayer/1.1/xplayer.swf';
+        swfurl = 'http://g.tbcdn.cn/de/music-swf/xplayer.swf';
     };
     var FlashPlayer = Base.extend({
         initializer: function() {
@@ -383,10 +383,9 @@ KISSY.add('gallery/xplayer/1.1/plugin/audioSwf',function(S, Base, Swf, Status) {
  * @version 1.0
  * @copyright www.noyobo.com
  */
-KISSY.add('gallery/xplayer/1.1/index',function(S, Node, PlayerAudio, PlayerSwf) {
+KISSY.add('gallery/xplayer/1.1/index',function(S, PlayerAudio, PlayerSwf) {
     'use strict';
     var EMPTY = '';
-    var $ = Node.all;
     /**
      * @name Xplayer
      * @class MP3播放组件
@@ -607,6 +606,6 @@ KISSY.add('gallery/xplayer/1.1/index',function(S, Node, PlayerAudio, PlayerSwf) 
     }
     return Xplayer;
 }, {
-    requires: ['node', './plugin/audio', './plugin/audioSwf']
+    requires: ['./plugin/audio', './plugin/audioSwf']
 });
 
