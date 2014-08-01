@@ -4,7 +4,7 @@
  * @version 1.0
  * @copyright www.noyobo.com
  */
-KISSY.add(function(S, Node, PlayerAudio, PlayerSwf) {
+KISSY.add(function(S, Node, PlayerAudio) {
     'use strict';
     var EMPTY = '';
     var $ = Node.all;
@@ -32,9 +32,7 @@ KISSY.add(function(S, Node, PlayerAudio, PlayerSwf) {
          * @type {Object}
          */
         self.config = S.mix({
-            'autoplay': false,
-            'forceFlash': false,
-            'forceAudio': false
+            'autoplay': false
         }, config, true);
         // 立即初始化
         self._init();
@@ -55,18 +53,8 @@ KISSY.add(function(S, Node, PlayerAudio, PlayerSwf) {
              * @readOnly
              * @type {Audio|Swf}
              */
-            self.track = null;
-            if (self.config.forceFlash) {
-                self.player = new PlayerSwf();
-                return self;
-            };
-            if (self.config.forceAudio) {
-                self.player = new PlayerAudio();
-                return self;
-            };
-            var isSupport = self.supportAudio();
-            self.player = isSupport ? new PlayerAudio() : new PlayerSwf();
-            //self.player = new PlayerSwf();
+            self.player = new PlayerAudio()
+                //self.player = new PlayerSwf();
 
             /**
              * Xplayer实例属性,正在播放的歌曲 TrackVo 对象
@@ -77,7 +65,7 @@ KISSY.add(function(S, Node, PlayerAudio, PlayerSwf) {
              * Xplayer.getTrack() // {trackVo}
              * @see getTrack()
              */
-
+            self.track = null;
             return self;
         },
         /**
@@ -190,20 +178,8 @@ KISSY.add(function(S, Node, PlayerAudio, PlayerSwf) {
          * @param {Number} val 音量大小
          */
         setVolume: function(val) {
-            var self = this;
-            self.player.setVolume(val)
-        },
-        /**
-         * 支持Audio检测
-         * @method Xplayer.supportAudio
-         * @return {Boolean} 是否支持Audio
-         */
-        supportAudio: function() {
                 var self = this;
-                //audio/mpeg
-                //application/octet-stream
-                var a = document.createElement('audio');
-                return !!(a.canPlayType && a.canPlayType('audio/mpeg').replace(/no/, ''));
+                self.player.setVolume(val)
             }
             /**
              * 正在播放中, 触发该事件
@@ -228,5 +204,5 @@ KISSY.add(function(S, Node, PlayerAudio, PlayerSwf) {
     }
     return Xplayer;
 }, {
-    requires: ['node', './plugin/audio', './plugin/audioSwf']
+    requires: ['node', './plugin/audio']
 });
