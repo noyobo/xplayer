@@ -2,7 +2,7 @@
 
 Xplayer是一款音乐播放器, 支持 audio flash 播放.
 
-* 版本：1.0
+* 版本：1.1
 * 作者：宝码
 * demo：[http://gallery.kissyui.com/xplayer/1.1/demo/index.html](http://gallery.kissyui.com/xplayer/1.1/demo/index.html)
 * mini demo[http://gallery.kissyui.com/xplayer/1.1/demo/mini.html](http://gallery.kissyui.com/xplayer/1.1/demo/mini.html)
