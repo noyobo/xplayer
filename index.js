@@ -55,18 +55,19 @@ KISSY.add(function(S, PlayerAudio, PlayerSwf) {
              * @type {Audio|Swf}
              */
             self.track = null;
+            self.player = null
             if (self.config.forceFlash) {
                 self.player = new PlayerSwf();
-                return self;
             };
             if (self.config.forceAudio) {
                 self.player = new PlayerAudio();
-                return self;
             };
-            var isSupport = self.supportAudio();
-            self.player = isSupport ? new PlayerAudio() : new PlayerSwf();
-            //self.player = new PlayerSwf();
+            if (self.player === null) {
+                var isSupport = self.supportAudio();
+                self.player = isSupport ? new PlayerAudio() : new PlayerSwf();
+            };
             self.status = self.player.status; // 引用
+            //self.player = new PlayerSwf();
             /**
              * Xplayer实例属性,正在播放的歌曲 TrackVo 对象
              * @type {Object}
