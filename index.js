@@ -68,7 +68,7 @@ KISSY.add(function(S, PlayerAudio, PlayerSwf) {
             var isSupport = self.supportAudio();
             self.player = isSupport ? new PlayerAudio() : new PlayerSwf();
             //self.player = new PlayerSwf();
-
+            self.status = self.player.status; // 引用
             /**
              * Xplayer实例属性,正在播放的歌曲 TrackVo 对象
              * @type {Object}

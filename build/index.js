@@ -1,10 +1,10 @@
 /*
 combined files : 
 
-kg/xplayer/2.0.2/plugin/status
-kg/xplayer/2.0.2/plugin/audio
-kg/xplayer/2.0.2/plugin/audioSwf
-kg/xplayer/2.0.2/index
+kg/xplayer/2.0.3/plugin/status
+kg/xplayer/2.0.3/plugin/audio
+kg/xplayer/2.0.3/plugin/audioSwf
+kg/xplayer/2.0.3/index
 
 */
 /**
@@ -12,7 +12,7 @@ kg/xplayer/2.0.2/index
  * @author 宝码<nongyoubao@alibaba-inc.com>
  * @namespace Xplayer.status
  */
-KISSY.add('kg/xplayer/2.0.2/plugin/status',function(S) {
+KISSY.add('kg/xplayer/2.0.3/plugin/status',function(S) {
     /** @lends Xplayer.status.prototype */
     return {
         /**
@@ -71,7 +71,7 @@ KISSY.add('kg/xplayer/2.0.2/plugin/status',function(S) {
  * @class Xplayer.audio
  * @extends {KISSY.Base}
  **/
-KISSY.add('kg/xplayer/2.0.2/plugin/audio',function(S, Base, Status) {
+KISSY.add('kg/xplayer/2.0.3/plugin/audio',function(S, Base, Status) {
 
     var Html5Audio = Base.extend(
         /** @lends Xplayer.audio */
@@ -223,7 +223,7 @@ KISSY.add('kg/xplayer/2.0.2/plugin/audio',function(S, Base, Status) {
  * @class Xplayer.FlashPlayer
  * @extends {KISSY.Base}
  **/
-KISSY.add('kg/xplayer/2.0.2/plugin/audioSwf',function(S, Base, Swf, Status) {
+KISSY.add('kg/xplayer/2.0.3/plugin/audioSwf',function(S, Base, Swf, Status) {
 
     function randomString(length) {
         var chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz'.split('');
@@ -384,7 +384,7 @@ KISSY.add('kg/xplayer/2.0.2/plugin/audioSwf',function(S, Base, Swf, Status) {
  * @version 1.0
  * @copyright www.noyobo.com
  */
-KISSY.add('kg/xplayer/2.0.2/index',function(S, PlayerAudio, PlayerSwf) {
+KISSY.add('kg/xplayer/2.0.3/index',function(S, PlayerAudio, PlayerSwf) {
     'use strict';
     var EMPTY = '';
     /**
@@ -448,7 +448,7 @@ KISSY.add('kg/xplayer/2.0.2/index',function(S, PlayerAudio, PlayerSwf) {
             var isSupport = self.supportAudio();
             self.player = isSupport ? new PlayerAudio() : new PlayerSwf();
             //self.player = new PlayerSwf();
-
+            self.status = self.player.status; // 引用
             /**
              * Xplayer实例属性,正在播放的歌曲 TrackVo 对象
              * @type {Object}
