@@ -1,7 +1,7 @@
 /**
  * @description MP3 播放核心插件
  * @author 宝码<nongyoubao@alibaba-inc.com>
- * @version 1.0
+ * @version @VERSION
  * @copyright www.noyobo.com
  */
 KISSY.add(function(S, PlayerAudio, PlayerSwf) {
@@ -215,13 +215,13 @@ KISSY.add(function(S, PlayerAudio, PlayerSwf) {
             /**
              * 正在播放中, 触发该事件
              * @event Xplayer.timeupdate
-             * @param {Object} [data={currentTime:0, duration:1}] 返回内容
+             * @param {Object} [data={currentTime:0, duration:1}] 单位毫秒
              * @return {Object} 返回状态
              */
             /**
              * 正在加载中, 触发该事件
              * @event Xplayer.progress
-             * @param {Object} [data={progress:0, duration:1}] 返回内容
+             * @param {Object} [data={progress:0, duration:1}] 单位毫秒
              * @return {Object} 返回状态
              */
             /**

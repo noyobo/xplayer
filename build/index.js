@@ -17,17 +17,17 @@ KISSY.add('kg/xplayer/2.0.3/plugin/status',function(S) {
     return {
         /**
          * 歌曲时长
-         * @type {Number}
+         * @type {Number} 毫秒
          */
         duration: 0,
         /**
          * 当前歌曲时长
-         * @type {Number}
+         * @type {Number}   毫秒
          */
         currentTime: 0,
         /**
          * 已加载歌曲时长
-         * @type {Number}
+         * @type {Number}   毫秒
          */
         loadedTime: 0,
         // *
@@ -86,11 +86,14 @@ KISSY.add('kg/xplayer/2.0.3/plugin/audio',function(S, Base, Status) {
             _addEvent: function() {
                 var self = this;
 
-
+                // 正在播放
+                self.audio.addEventListener("loadstart", function(event) {
+                    self.fire('open');
+                });
                 // 正在播放
                 self.audio.addEventListener("timeupdate", function(event) {
-                    self.status.currentTime = this.currentTime;
-                    self.status.duration = this.duration;
+                    self.status.currentTime = this.currentTime * 1000;
+                    self.status.duration = this.duration * 1000;
                     self.fire(event.type, self.status);
                 });
                 // 播放完成
@@ -239,7 +242,8 @@ KISSY.add('kg/xplayer/2.0.3/plugin/audioSwf',function(S, Base, Swf, Status) {
     var win = window;
     var swfurl = "../flash/xplayer.swf?v=" + S.now();
     if (window.location.href.indexOf('github.xiami.com') === -1) {
-        swfurl = 'http://g.tbcdn.cn/de/music-swf/xplayer.swf';
+        swfurl = '//g.alicdn.com/kg/xplayer/2.0.3/xplayer.swf';
+        // swfurl = 'http://gitlabswf.xiami.com/kg/xplayer/build/xplayer.swf';
     };
     var FlashPlayer = Base.extend({
         initializer: function() {
@@ -274,6 +278,9 @@ KISSY.add('kg/xplayer/2.0.3/plugin/audioSwf',function(S, Base, Swf, Status) {
 
             self.status = Status;
             self.interface = win[XPLAYERINTERFACE] = {
+                open: function () {
+                    self.fire('open')
+                },
                 timeupdate: function(data) {
                     self.status.currentTime = data.currentTime;
                     self.status.duration = data.duration;
@@ -381,7 +388,7 @@ KISSY.add('kg/xplayer/2.0.3/plugin/audioSwf',function(S, Base, Swf, Status) {
 /**
  * @description MP3 播放核心插件
  * @author 宝码<nongyoubao@alibaba-inc.com>
- * @version 1.0
+ * @version 2.0.3
  * @copyright www.noyobo.com
  */
 KISSY.add('kg/xplayer/2.0.3/index',function(S, PlayerAudio, PlayerSwf) {
@@ -595,13 +602,13 @@ KISSY.add('kg/xplayer/2.0.3/index',function(S, PlayerAudio, PlayerSwf) {
             /**
              * 正在播放中, 触发该事件
              * @event Xplayer.timeupdate
-             * @param {Object} [data={currentTime:0, duration:1}] 返回内容
+             * @param {Object} [data={currentTime:0, duration:1}] 单位毫秒
              * @return {Object} 返回状态
              */
             /**
              * 正在加载中, 触发该事件
              * @event Xplayer.progress
-             * @param {Object} [data={progress:0, duration:1}] 返回内容
+             * @param {Object} [data={progress:0, duration:1}] 单位毫秒
              * @return {Object} 返回状态
              */
             /**

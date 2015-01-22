@@ -8,17 +8,17 @@ KISSY.add(function(S) {
     return {
         /**
          * 歌曲时长
-         * @type {Number}
+         * @type {Number} 毫秒
          */
         duration: 0,
         /**
          * 当前歌曲时长
-         * @type {Number}
+         * @type {Number}   毫秒
          */
         currentTime: 0,
         /**
          * 已加载歌曲时长
-         * @type {Number}
+         * @type {Number}   毫秒
          */
         loadedTime: 0,
         // *

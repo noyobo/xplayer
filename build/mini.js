@@ -16,17 +16,17 @@ KISSY.add('kg/xplayer/2.0.3/plugin/status',function(S) {
     return {
         /**
          * 歌曲时长
-         * @type {Number}
+         * @type {Number} 毫秒
          */
         duration: 0,
         /**
          * 当前歌曲时长
-         * @type {Number}
+         * @type {Number}   毫秒
          */
         currentTime: 0,
         /**
          * 已加载歌曲时长
-         * @type {Number}
+         * @type {Number}   毫秒
          */
         loadedTime: 0,
         // *
@@ -85,11 +85,14 @@ KISSY.add('kg/xplayer/2.0.3/plugin/audio',function(S, Base, Status) {
             _addEvent: function() {
                 var self = this;
 
-
+                // 正在播放
+                self.audio.addEventListener("loadstart", function(event) {
+                    self.fire('open');
+                });
                 // 正在播放
                 self.audio.addEventListener("timeupdate", function(event) {
-                    self.status.currentTime = this.currentTime;
-                    self.status.duration = this.duration;
+                    self.status.currentTime = this.currentTime * 1000;
+                    self.status.duration = this.duration * 1000;
                     self.fire(event.type, self.status);
                 });
                 // 播放完成
