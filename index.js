@@ -1,8 +1,6 @@
 /**
  * @description MP3 播放核心插件
  * @author 宝码<nongyoubao@alibaba-inc.com>
- * @version @VERSION
- * @copyright www.noyobo.com
  */
 KISSY.add(function(S, PlayerAudio, PlayerSwf) {
     'use strict';
@@ -223,6 +221,10 @@ KISSY.add(function(S, PlayerAudio, PlayerSwf) {
              * @event Xplayer.progress
              * @param {Object} [data={progress:0, duration:1}] 单位毫秒
              * @return {Object} 返回状态
+             */
+            /**
+             * 播放开始(加载文件), 触发该事件
+             * @event Xplayer.open
              */
             /**
              * 播放结束, 触发该事件
