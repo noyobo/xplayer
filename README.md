@@ -1,5 +1,7 @@
 ## xplayer
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/noyobo/xplayer.svg)](https://greenkeeper.io/)
+
 * 版本：2.0.2
 * 教程：[/xplayer/doc/guide/index.html](/xplayer/doc/guide/index.html)
 * demo：[/xplayer/doc/demo/index.html](/xplayer/doc/demo/index.html)
